@@ -116,44 +116,18 @@ export interface Dictionary {
 
 const sharedProjects: ProjectItem[] = [
   {
-    name: "BookBuddy",
+    name: "Dubai Mall Interactive Sales Deck",
     description:
-      "AI-powered book discovery app with dynamic search and recommendation features. Built with React and external APIs, featuring reusable components, smart filtering, favorites management, and robust error handling.",
+      "Premium scene-based web presentation built with Next.js, TypeScript, GSAP, Lenis, and Framer Motion to showcase Dubai Mall through cinematic storytelling, interactive navigation, data visualizations, and modular inquiry flows for leasing, sponsorship, and events.",
     tags: [
-      { name: "react", color: "blue-text-gradient" },
-      { name: "axios", color: "green-text-gradient" },
-      { name: "css3", color: "pink-text-gradient" },
+      { name: "next.js", color: "blue-text-gradient" },
+      { name: "typescript", color: "green-text-gradient" },
+      { name: "gsap", color: "pink-text-gradient" },
+      { name: "framer motion", color: "orange-text-gradient" },
     ],
-    image: "/images/bookbuddy.png",
+    image: "/images/dubaimall.png",
     source_code_link: "https://github.com/Jithuvarghese",
-    live_demo_link: "https://github.com/Jithuvarghese",
-  },
-  {
-    name: "Hand Gesture Recognition",
-    description:
-      "Real-time ISL gesture recognition system that translates hand gestures into text and speech using computer vision and deep learning.",
-    tags: [
-      { name: "python", color: "blue-text-gradient" },
-      { name: "opencv", color: "green-text-gradient" },
-      { name: "tensorflow", color: "pink-text-gradient" },
-    ],
-    image: "/images/scheduler.png",
-    source_code_link: "https://github.com/Jithuvarghese",
-    live_demo_link: "https://github.com/Jithuvarghese",
-  },
-  {
-    name: "Financial Data Lakehouse",
-    description:
-      "End-to-end ETL pipeline using Bronze-Silver-Gold medallion architecture for financial data processing with Power BI dashboards.",
-    tags: [
-      { name: "python", color: "blue-text-gradient" },
-      { name: "pandas", color: "green-text-gradient" },
-      { name: "power bi", color: "pink-text-gradient" },
-      { name: "mysql", color: "orange-text-gradient" },
-    ],
-    image: "/images/annapurna.png",
-    source_code_link: "https://github.com/Jithuvarghese",
-    live_demo_link: "https://github.com/Jithuvarghese",
+    live_demo_link: "https://dubaimall-three.vercel.app/",
   },
   {
     name: "Flight Explorer",
@@ -182,6 +156,46 @@ const sharedProjects: ProjectItem[] = [
     image: "/images/city%20report.png",
     source_code_link: "https://github.com/Jithuvarghese/Cityhub",
     live_demo_link: "https://cityhub-bd0e6j0tf-jithu-vargheses-projects.vercel.app/",
+  },
+  {
+    name: "BookBuddy",
+    description:
+      "AI-powered book discovery app with dynamic search and recommendation features. Built with React and external APIs, featuring reusable components, smart filtering, favorites management, and robust error handling.",
+    tags: [
+      { name: "react", color: "blue-text-gradient" },
+      { name: "axios", color: "green-text-gradient" },
+      { name: "css3", color: "pink-text-gradient" },
+    ],
+    image: "/images/bookbuddy.png",
+    source_code_link: "https://github.com/Jithuvarghese",
+    live_demo_link: "https://github.com/Jithuvarghese",
+  },
+  {
+    name: "Hand Gesture Recognition",
+    description:
+      "Real-time ISL gesture recognition system that translates hand gestures into text and speech using computer vision and deep learning. Presented at ICETCSMA'25.",
+    tags: [
+      { name: "python", color: "blue-text-gradient" },
+      { name: "opencv", color: "green-text-gradient" },
+      { name: "tensorflow", color: "pink-text-gradient" },
+    ],
+    image: "/images/scheduler.png",
+    source_code_link: "https://github.com/Jithuvarghese",
+    live_demo_link: "https://github.com/Jithuvarghese",
+  },
+  {
+    name: "Financial Data Lakehouse",
+    description:
+      "End-to-end ETL pipeline using Bronze-Silver-Gold medallion architecture for financial data processing with Power BI dashboards.",
+    tags: [
+      { name: "python", color: "blue-text-gradient" },
+      { name: "pandas", color: "green-text-gradient" },
+      { name: "power bi", color: "pink-text-gradient" },
+      { name: "mysql", color: "orange-text-gradient" },
+    ],
+    image: "/images/annapurna.png",
+    source_code_link: "https://github.com/Jithuvarghese",
+    live_demo_link: "https://github.com/Jithuvarghese",
   },
 ];
 

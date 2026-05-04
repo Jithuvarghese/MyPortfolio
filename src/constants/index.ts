@@ -129,6 +129,48 @@ const experiences = [
 
 const projects = [
   {
+    name: "Dubai Mall Interactive Sales Deck",
+    description:
+      "Premium scene-based web presentation built with Next.js, TypeScript, GSAP, Lenis, and Framer Motion to showcase Dubai Mall through cinematic storytelling, interactive navigation, data visualizations, and modular inquiry flows for leasing, sponsorship, and events.",
+    tags: [
+      { name: "next.js", color: "blue-text-gradient" },
+      { name: "typescript", color: "green-text-gradient" },
+      { name: "gsap", color: "pink-text-gradient" },
+      { name: "framer motion", color: "orange-text-gradient" },
+    ],
+    image: "/images/dubaimall.png",
+    source_code_link: "https://github.com/Jithuvarghese",
+    live_demo_link: "https://dubaimall-three.vercel.app/",
+  },
+  {
+    name: "Flight Explorer",
+    description:
+      "Modern flight tracking web app built with React and Vite. Integrates Aviationstack for live flight data, supports search and filtering, detailed modal views, and a persistent watchlist with localStorage.",
+    tags: [
+      { name: "react 19", color: "blue-text-gradient" },
+      { name: "typescript", color: "green-text-gradient" },
+      { name: "tailwind css", color: "pink-text-gradient" },
+      { name: "aviationstack api", color: "orange-text-gradient" },
+    ],
+    image: "/images/flight.png",
+    source_code_link: "https://github.com/Jithuvarghese/Flightexplorer.git",
+    live_demo_link: "https://flightexplorer-9l6ufwqb7-jithu-vargheses-projects.vercel.app/",
+  },
+  {
+    name: "CityReport",
+    description:
+      "Map-driven city issue reporting app with a mobile-first experience for discovering, reporting, and tracking civic problems. Includes geolocation, auth, comments, support/upvotes, status tracking, and PWA support.",
+    tags: [
+      { name: "react", color: "blue-text-gradient" },
+      { name: "vite", color: "green-text-gradient" },
+      { name: "tailwind css", color: "pink-text-gradient" },
+      { name: "leaflet", color: "orange-text-gradient" },
+    ],
+    image: "/images/city%20report.png",
+    source_code_link: "https://github.com/Jithuvarghese/Cityhub",
+    live_demo_link: "https://cityhub-bd0e6j0tf-jithu-vargheses-projects.vercel.app/",
+  },
+  {
     name: "BookBuddy",
     description:
       "AI-powered book discovery app with dynamic search and recommendation features. Built with React and external APIs, featuring reusable components, smart filtering, favorites management, and robust error handling.",
@@ -167,34 +209,6 @@ const projects = [
     image: "/images/annapurna.png",
     source_code_link: "https://github.com/Jithuvarghese",
     live_demo_link: "https://github.com/Jithuvarghese",
-  },
-  {
-    name: "Flight Explorer",
-    description:
-      "Modern flight tracking web app built with React and Vite. Integrates Aviationstack for live flight data, supports search and filtering, detailed modal views, and a persistent watchlist with localStorage.",
-    tags: [
-      { name: "react 19", color: "blue-text-gradient" },
-      { name: "typescript", color: "green-text-gradient" },
-      { name: "tailwind css", color: "pink-text-gradient" },
-      { name: "aviationstack api", color: "orange-text-gradient" },
-    ],
-    image: "/images/flight.png",
-    source_code_link: "https://github.com/Jithuvarghese/Flightexplorer.git",
-    live_demo_link: "https://flightexplorer-9l6ufwqb7-jithu-vargheses-projects.vercel.app/",
-  },
-  {
-    name: "CityReport",
-    description:
-      "Map-driven city issue reporting app with a mobile-first experience for discovering, reporting, and tracking civic problems. Includes geolocation, auth, comments, support/upvotes, status tracking, and PWA support.",
-    tags: [
-      { name: "react", color: "blue-text-gradient" },
-      { name: "vite", color: "green-text-gradient" },
-      { name: "tailwind css", color: "pink-text-gradient" },
-      { name: "leaflet", color: "orange-text-gradient" },
-    ],
-    image: "/images/city%20report.png",
-    source_code_link: "https://github.com/Jithuvarghese/Cityhub",
-    live_demo_link: "https://cityhub-bd0e6j0tf-jithu-vargheses-projects.vercel.app/",
   },
 ];
 
