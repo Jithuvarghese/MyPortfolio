@@ -242,7 +242,7 @@ const ProjectCard = ({
           >
             <div>
               <h3 className="text-white font-bold text-[22px] leading-tight mb-2" style={{ transform: `translateZ(${isHovered ? '30' : '0'}px)` }}>{name}</h3>
-              <p className="mt-1 text-secondary text-[14px] leading-relaxed overflow-hidden line-clamp-3" style={{ transform: `translateZ(${isHovered ? '15' : '0'}px)` }}>
+              <p className={`mt-1 text-secondary text-[14px] leading-relaxed overflow-hidden transition-all duration-300 ${isHovered ? '' : 'line-clamp-3'}`} style={{ transform: `translateZ(${isHovered ? '15' : '0'}px)` }}>
                 {description}
               </p>
             </div>

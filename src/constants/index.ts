@@ -129,6 +129,20 @@ const experiences = [
 
 const projects = [
   {
+    name: "Algoka-KandCo",
+    description:
+      "Professional agency portfolio website built with React 19, Vite, and Tailwind CSS. Features smooth Lenis scrolling, Framer Motion animations, Swiper carousels, EmailJS contact form, WhatsApp integration, custom cursor, lazy-loaded sections for Hero, Services, Portfolio, Team, Testimonials, and Blog, with full SEO optimization.",
+    tags: [
+      { name: "react 19", color: "blue-text-gradient" },
+      { name: "framer motion", color: "green-text-gradient" },
+      { name: "tailwind css", color: "pink-text-gradient" },
+      { name: "emailjs", color: "orange-text-gradient" },
+    ],
+    image: "/images/Kalpandco.png",
+    source_code_link: "https://github.com/Jithuvarghese",
+    live_demo_link: "https://kalpandco.com/",
+  },
+  {
     name: "Dubai Mall Interactive Sales Deck",
     description:
       "Premium scene-based web presentation built with Next.js, TypeScript, GSAP, Lenis, and Framer Motion to showcase Dubai Mall through cinematic storytelling, interactive navigation, data visualizations, and modular inquiry flows for leasing, sponsorship, and events.",
@@ -169,19 +183,6 @@ const projects = [
     image: "/images/city%20report.png",
     source_code_link: "https://github.com/Jithuvarghese/Cityhub",
     live_demo_link: "https://cityhub-bd0e6j0tf-jithu-vargheses-projects.vercel.app/",
-  },
-  {
-    name: "BookBuddy",
-    description:
-      "AI-powered book discovery app with dynamic search and recommendation features. Built with React and external APIs, featuring reusable components, smart filtering, favorites management, and robust error handling.",
-    tags: [
-      { name: "react", color: "blue-text-gradient" },
-      { name: "axios", color: "green-text-gradient" },
-      { name: "css3", color: "pink-text-gradient" },
-    ],
-    image: "/images/bookbuddy.png",
-    source_code_link: "https://github.com/Jithuvarghese",
-    live_demo_link: "https://github.com/Jithuvarghese",
   },
   {
     name: "Hand Gesture Recognition",

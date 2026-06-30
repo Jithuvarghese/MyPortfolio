@@ -116,6 +116,20 @@ export interface Dictionary {
 
 const sharedProjects: ProjectItem[] = [
   {
+    name: "Algoka-KandCo",
+    description:
+      "Professional agency portfolio website built with React 19, Vite, and Tailwind CSS. Features smooth Lenis scrolling, Framer Motion animations, Swiper carousels, EmailJS contact form, WhatsApp integration, custom cursor, lazy-loaded sections for Hero, Services, Portfolio, Team, Testimonials, and Blog, with full SEO optimization.",
+    tags: [
+      { name: "react 19", color: "blue-text-gradient" },
+      { name: "framer motion", color: "green-text-gradient" },
+      { name: "tailwind css", color: "pink-text-gradient" },
+      { name: "emailjs", color: "orange-text-gradient" },
+    ],
+    image: "/images/Kalpandco.png",
+    source_code_link: "https://github.com/Jithuvarghese",
+    live_demo_link: "https://kalpandco.com/",
+  },
+  {
     name: "Dubai Mall Interactive Sales Deck",
     description:
       "Premium scene-based web presentation built with Next.js, TypeScript, GSAP, Lenis, and Framer Motion to showcase Dubai Mall through cinematic storytelling, interactive navigation, data visualizations, and modular inquiry flows for leasing, sponsorship, and events.",
@@ -156,19 +170,6 @@ const sharedProjects: ProjectItem[] = [
     image: "/images/city%20report.png",
     source_code_link: "https://github.com/Jithuvarghese/Cityhub",
     live_demo_link: "https://cityhub-bd0e6j0tf-jithu-vargheses-projects.vercel.app/",
-  },
-  {
-    name: "BookBuddy",
-    description:
-      "AI-powered book discovery app with dynamic search and recommendation features. Built with React and external APIs, featuring reusable components, smart filtering, favorites management, and robust error handling.",
-    tags: [
-      { name: "react", color: "blue-text-gradient" },
-      { name: "axios", color: "green-text-gradient" },
-      { name: "css3", color: "pink-text-gradient" },
-    ],
-    image: "/images/bookbuddy.png",
-    source_code_link: "https://github.com/Jithuvarghese",
-    live_demo_link: "https://github.com/Jithuvarghese",
   },
   {
     name: "Hand Gesture Recognition",
@@ -227,7 +228,7 @@ const sharedExperiences: ExperienceItem[] = [
     company_name: "Corestrat",
     icon: "web.png",
     iconBg: "#0f3460",
-    date: "Jan 2026 - Present",
+    date: "Jan 2026 - Apr 2026",
     points: [
       "Built and scaled a real-time fintech analytics and trading platform across web and mobile.",
       "Designed modular, high-performance state architecture for portfolios, market data, and trading workflows.",
@@ -240,7 +241,7 @@ const sharedExperiences: ExperienceItem[] = [
     company_name: "CHRIST (Deemed to be University)",
     icon: "christ.png",
     iconBg: "#0d2137",
-    date: "Jul 2024 - Present",
+    date: "Jul 2024 - May 2026",
     points: [
       "Pursuing Master of Computer Applications with a focus on advanced computing and software engineering.",
       "Serving as Student Councillor for the academic year 2025-2026.",
@@ -295,7 +296,7 @@ const sharedExperiencesHi: ExperienceItem[] = [
     company_name: "Corestrat",
     icon: "web.png",
     iconBg: "#0f3460",
-    date: "Jan 2026 - Present",
+    date: "Jan 2026 - Apr 2026",
     points: [
       "वेब और मोबाइल पर रियल-टाइम फिनटेक प्लेटफॉर्म विकसित और स्केल किया।",
       "पोर्टफोलियो, मार्केट डेटा और ट्रेडिंग के लिए उच्च-प्रदर्शन स्टेट आर्किटेक्चर बनाया।",
@@ -308,7 +309,7 @@ const sharedExperiencesHi: ExperienceItem[] = [
     company_name: "CHRIST (Deemed to be University)",
     icon: "christ.png",
     iconBg: "#0d2137",
-    date: "Jul 2024 - Present",
+    date: "Jul 2024 - May 2026",
     points: [
       "उन्नत कंप्यूटिंग और सॉफ्टवेयर इंजीनियरिंग पर फोकस के साथ MCA कर रहा हूं।",
       "2025-26 के लिए स्टूडेंट काउंसलर के रूप में सेवा दे रहा हूं।",
@@ -363,7 +364,7 @@ const sharedExperiencesAr: ExperienceItem[] = [
     company_name: "Corestrat",
     icon: "web.png",
     iconBg: "#0f3460",
-    date: "Jan 2026 - Present",
+    date: "Jan 2026 - Apr 2026",
     points: [
       "طورت منصة فنتك لحظية على الويب والجوال وقمت بتوسيعها.",
       "صممت بنية حالة عالية الأداء للمحافظ وبيانات السوق وسير التداول.",
@@ -376,7 +377,7 @@ const sharedExperiencesAr: ExperienceItem[] = [
     company_name: "CHRIST (Deemed to be University)",
     icon: "christ.png",
     iconBg: "#0d2137",
-    date: "Jul 2024 - Present",
+    date: "Jul 2024 - May 2026",
     points: [
       "أتابع درجة MCA مع تركيز على الحوسبة المتقدمة وهندسة البرمجيات.",
       "أعمل كممثل طلابي للعام الأكاديمي 2025-2026.",
@@ -431,7 +432,7 @@ const sharedExperiencesMl: ExperienceItem[] = [
     company_name: "Corestrat",
     icon: "web.png",
     iconBg: "#0f3460",
-    date: "Jan 2026 - Present",
+    date: "Jan 2026 - Apr 2026",
     points: [
       "വെബിലും മൊബൈലിലും റിയൽ-ടൈം ഫിൻടെക് പ്ലാറ്റ്‌ഫോം നിർമ്മിച്ച് സ്കെയിൽ ചെയ്തു.",
       "പോർട്ട്ഫോളിയോ, മാർക്കറ്റ് ഡാറ്റ, ട്രേഡിംഗ് വർക്ക്‌ഫ്ലോ എന്നിവയ്ക്കായി ഹൈ-പെർഫോർമൻസ് സ്റ്റേറ്റ് ആർക്കിടെക്ചർ രൂപകൽപ്പന ചെയ്തു.",
@@ -444,7 +445,7 @@ const sharedExperiencesMl: ExperienceItem[] = [
     company_name: "CHRIST (Deemed to be University)",
     icon: "christ.png",
     iconBg: "#0d2137",
-    date: "Jul 2024 - Present",
+    date: "Jul 2024 - May 2026",
     points: [
       "അഡ്വാൻസ്ഡ് കമ്പ്യൂട്ടിംഗിലും സോഫ്റ്റ്വെയർ എഞ്ചിനീയറിംഗിലും ശ്രദ്ധയോടെ MCA പഠിക്കുന്നു.",
       "2025-26 അക്കാദമിക് വർഷത്തിൽ സ്റ്റുഡന്റ് കൗൺസിലറായി പ്രവർത്തിക്കുന്നു.",
@@ -499,7 +500,7 @@ const sharedExperiencesFr: ExperienceItem[] = [
     company_name: "Corestrat",
     icon: "web.png",
     iconBg: "#0f3460",
-    date: "Jan 2026 - Present",
+    date: "Jan 2026 - Apr 2026",
     points: [
       "Developpement et mise a l'echelle d'une plateforme fintech temps reel sur web et mobile.",
       "Conception d'une architecture d'etat performante pour portefeuilles, donnees marche et trading.",
@@ -512,7 +513,7 @@ const sharedExperiencesFr: ExperienceItem[] = [
     company_name: "CHRIST (Deemed to be University)",
     icon: "christ.png",
     iconBg: "#0d2137",
-    date: "Jul 2024 - Present",
+    date: "Jul 2024 - May 2026",
     points: [
       "Poursuite d'un MCA axe sur l'informatique avancee et l'ingenierie logicielle.",
       "Representant etudiant pour l'annee academique 2025-2026.",
