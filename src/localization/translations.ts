@@ -250,7 +250,7 @@ const sharedExperiences: ExperienceItem[] = [
     ],
   },
   {
-    title: "Cloud & Infra Engineer",
+    title: "Cloud & Devops Engineer",
     company_name: "Larsen & Toubro Infotech (LTI)",
     icon: "backend.png",
     iconBg: "#162032",
