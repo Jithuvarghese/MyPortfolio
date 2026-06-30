@@ -87,16 +87,16 @@ const experiences = [
     ],
   },
   {
-    title: "Cloud & Infra Engineer (Backup Administrator)",
+    title: "Cloud & DevOps Engineer",
     company_name: "Larsen & Toubro Infotech (LTI)",
     icon: "backend.png",
     iconBg: "#162032",
     date: "Sep 2022 – Jul 2024",
     points: [
-      "Configured and managed Commvault backup systems across Windows, Linux, SQL Server, Oracle, and Exchange environments.",
-      "Executed disaster recovery strategies achieving a 99.9% backup success rate with full compliance reporting.",
-      "Managed IT infrastructure across multi-cloud environments including Azure and AWS EC2.",
-      "Automated backup verification scripts and monitoring dashboards to reduce manual overhead.",
+      "Automated infrastructure provisioning using Terraform and Azure DevOps Pipelines, reducing manual effort by 40% and enabling repeatable environment builds.",
+      "Built and maintained CI/CD pipelines (Azure DevOps, GitHub Actions) for automated build, test, and deployment across dev, staging, and production.",
+      "Deployed and managed containerised workloads using Docker and Kubernetes (AKS) with Helm charts; executed rolling updates with zero downtime.",
+      "Implemented observability with Azure Monitor and Application Insights; maintained 99.9% uptime SLA and reduced MTTR by 30% through proactive alerting.",
     ],
   },
   {
