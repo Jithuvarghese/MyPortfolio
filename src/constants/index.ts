@@ -129,6 +129,20 @@ const experiences = [
 
 const projects = [
   {
+    name: "Ordinary · ഓർഡിനറി",
+    description:
+      "Single-screen web tribute to Kerala's private buses: sit inside a hand-illustrated town bus while 200+ Malayalam bus-ride songs play. Features a frosted-glass YouTube-powered music player with Media Session controls, a live passenger count via Supabase Realtime Presence, a timestamp-based last-stop sleep timer with synthesised bell and volume fade, and accessible, reduced-motion-friendly design.",
+    tags: [
+      { name: "next.js", color: "blue-text-gradient" },
+      { name: "typescript", color: "green-text-gradient" },
+      { name: "supabase realtime", color: "pink-text-gradient" },
+      { name: "tailwind css", color: "orange-text-gradient" },
+    ],
+    image: "/images/ordinary.png",
+    source_code_link: "https://github.com/Jithuvarghese/Ordinary",
+    live_demo_link: "https://ordinarybus.vercel.app",
+  },
+  {
     name: "Algoka-KandCo",
     description:
       "Professional agency portfolio website built with React 19, Vite, and Tailwind CSS. Features smooth Lenis scrolling, Framer Motion animations, Swiper carousels, EmailJS contact form, WhatsApp integration, custom cursor, lazy-loaded sections for Hero, Services, Portfolio, Team, Testimonials, and Blog, with full SEO optimization.",
