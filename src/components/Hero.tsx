@@ -56,7 +56,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        <div className="hero-text relative z-10 min-w-0 flex-1 md:pe-[40%] lg:pe-[44%]">
+        <div className="hero-text relative z-10 min-w-0 flex-1 md:ps-[40%] lg:ps-[44%]">
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -88,12 +88,12 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Desktop: large cut-out photo filling the right side, flush to the bottom */}
+        {/* Desktop: large cut-out photo filling the left side, flush to the bottom */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.6, delay: 0.3, ease }}
-          className="absolute bottom-0 end-0 top-16 hidden w-[38%] max-w-[680px] md:block lg:w-[46%]"
+          className="absolute bottom-0 start-0 top-16 hidden w-[38%] max-w-[680px] md:block lg:w-[46%]"
         >
           <img
             src="/images/profile.png"
