@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 import { styles } from "../styles";
 import SectionWrapper from "./SectionWrapper";
-import { fadeIn, textVariant } from "../utils/motion";
+import { fadeIn, reveal, textVariant } from "../utils/motion";
 import IconWrapper from "./IconWrapper";
 import { useAppPreferences } from "../context/AppPreferencesContext";
 
@@ -35,10 +35,8 @@ const ProjectCard = ({
   return (
     // Own whileInView so each card reveals as it scrolls in, staggered by column.
     <motion.article
-      variants={fadeIn("", "", (index % 2) * 0.08, 0.5)}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: "some" }}
+      variants={fadeIn("", "", (index % 2) * 0.12)}
+      {...reveal}
       className="project-card flex h-full flex-col"
     >
       <div className="aspect-[16/10] w-full overflow-hidden border border-line bg-surface">

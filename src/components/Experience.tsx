@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import { styles } from "../styles";
 import SectionWrapper from "./SectionWrapper";
-import { fadeIn, textVariant } from "../utils/motion";
+import { fadeIn, reveal, textVariant } from "../utils/motion";
 import { useAppPreferences } from "../context/AppPreferencesContext";
 
 const Experience = () => {
@@ -19,7 +19,8 @@ const Experience = () => {
         {dictionary.data.experiences.map((experience, index) => (
           <motion.article
             key={index}
-            variants={fadeIn("", "", 0, 0.5)}
+            variants={fadeIn("", "", 0)}
+            {...reveal}
             className="grid gap-4 border-b border-line py-10 md:grid-cols-12 md:gap-12"
           >
             <p className="font-mono text-xs uppercase tracking-label text-muted md:col-span-3">

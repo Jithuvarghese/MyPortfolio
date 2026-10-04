@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { fadeIn, textVariant } from "../utils/motion";
+import { fadeIn, reveal, textVariant } from "../utils/motion";
 import SectionWrapper from "./SectionWrapper";
 import { useAppPreferences } from "../context/AppPreferencesContext";
 
@@ -24,7 +24,8 @@ const About = () => {
       </div>
 
       <motion.ul
-        variants={fadeIn("", "", 0.1, 0.5)}
+        variants={fadeIn("", "", 0.1)}
+        {...reveal}
         className="mt-16 grid list-none border-s border-t border-line sm:grid-cols-2 lg:grid-cols-4"
       >
         {dictionary.data.services.map((service, index) => (
@@ -39,7 +40,8 @@ const About = () => {
       </motion.ul>
 
       <motion.div
-        variants={fadeIn("", "", 0.1, 0.5)}
+        variants={fadeIn("", "", 0.1)}
+        {...reveal}
         className="mt-20 grid gap-8 md:grid-cols-12 md:gap-12"
       >
         <h3 className="font-mono text-xs uppercase tracking-label text-muted md:col-span-5">

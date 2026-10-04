@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { gsap } from "../utils/gsap";
@@ -42,29 +42,34 @@ const Hero = () => {
       >
         {/* Mobile: photo on top */}
         <div className="md:hidden">
-          <div className="h-[200px] w-[160px] overflow-hidden border border-line bg-surface">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.4, delay: 0.2, ease }}
+            className="h-[260px] w-[208px] overflow-hidden [mask-image:linear-gradient(to_bottom,black_70%,transparent)]"
+          >
             <img
               src="/images/profile.png"
               alt="Jithu Varghese"
-              className="profile-photo h-full w-full origin-top scale-[1.2] object-cover object-top"
+              className="profile-photo h-full w-full object-cover object-top"
             />
-          </div>
+          </motion.div>
         </div>
 
         <div className="hero-text relative z-10 min-w-0 flex-1 md:pe-[40%] lg:pe-[44%]">
           <motion.h1
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease }}
+            transition={{ duration: 1, ease }}
             className={styles.heroHeadText}
           >
             {dictionary.hero.greeting} Jithu
           </motion.h1>
 
           <motion.div
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15, ease }}
+            transition={{ duration: 1, delay: 0.35, ease }}
           >
             <p className={`${styles.heroSubText} mt-8 max-w-2xl text-fg`}>{dictionary.hero.role}</p>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
@@ -84,13 +89,19 @@ const Hero = () => {
         </div>
 
         {/* Desktop: large cut-out photo filling the right side, flush to the bottom */}
-        <div className="absolute bottom-0 end-0 top-16 hidden w-[38%] max-w-[680px] md:block lg:w-[46%]">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.6, delay: 0.3, ease }}
+          className="absolute bottom-0 end-0 top-16 hidden w-[38%] max-w-[680px] md:block lg:w-[46%]"
+        >
           <img
             src="/images/profile.png"
             alt="Jithu Varghese"
             className="profile-photo h-full w-full object-cover object-top"
           />
-        </div>      </div>
+        </motion.div>
+      </div>
     </section>
   );
 };

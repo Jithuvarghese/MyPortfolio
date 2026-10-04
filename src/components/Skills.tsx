@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import SectionWrapper from "./SectionWrapper";
-import { fadeIn, textVariant } from "../utils/motion";
+import { fadeIn, reveal, textVariant } from "../utils/motion";
 import { useAppPreferences } from "../context/AppPreferencesContext";
 
 const Skills = () => {
@@ -27,7 +27,8 @@ const Skills = () => {
         {dictionary.data.skillCategories.map((category) => (
           <motion.div
             key={category.title}
-            variants={fadeIn("", "", 0, 0.5)}
+            variants={fadeIn("", "", 0)}
+            {...reveal}
             className="grid gap-5 border-b border-line py-8 md:grid-cols-12 md:gap-12"
           >
             <h3 className="font-heading text-xl font-semibold text-fg md:col-span-3">{category.title}</h3>
