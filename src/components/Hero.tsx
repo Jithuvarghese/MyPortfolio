@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+﻿import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { gsap } from "../utils/gsap";
@@ -36,22 +36,22 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className="relative mx-auto w-full">
+    <section id="hero" className="relative mx-auto w-full overflow-hidden">
       <div
         className={`${styles.paddingX} mx-auto flex w-full max-w-7xl flex-col gap-10 pb-20 pt-28 md:min-h-screen md:flex-row md:items-end md:justify-between md:gap-12 md:pb-24 md:pt-32`}
       >
         {/* Mobile: photo on top */}
         <div className="md:hidden">
-          <div className="h-[200px] w-[160px] overflow-hidden border border-line">
+          <div className="h-[200px] w-[160px] overflow-hidden border border-line bg-surface">
             <img
-              src="/images/profile.jpg"
+              src="/images/profile.png"
               alt="Jithu Varghese"
-              className="profile-photo h-full w-full object-cover object-top"
+              className="profile-photo h-full w-full origin-top scale-[1.2] object-cover object-top"
             />
           </div>
         </div>
 
-        <div className="hero-text min-w-0 flex-1">
+        <div className="hero-text relative z-10 min-w-0 flex-1 md:pe-[40%] lg:pe-[44%]">
           <motion.h1
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -83,17 +83,14 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Desktop: photo on the right */}
-        <div className="hidden flex-shrink-0 md:block">
-          <div className="h-[300px] w-[240px] overflow-hidden border border-line lg:h-[380px] lg:w-[300px]">
-            <img
-              src="/images/profile.jpg"
-              alt="Jithu Varghese"
-              className="profile-photo h-full w-full object-cover object-top"
-            />
-          </div>
-        </div>
-      </div>
+        {/* Desktop: large cut-out photo filling the right side, flush to the bottom */}
+        <div className="absolute bottom-0 end-0 top-16 hidden w-[38%] max-w-[680px] md:block lg:w-[46%]">
+          <img
+            src="/images/profile.png"
+            alt="Jithu Varghese"
+            className="profile-photo h-full w-full object-cover object-top"
+          />
+        </div>      </div>
     </section>
   );
 };
