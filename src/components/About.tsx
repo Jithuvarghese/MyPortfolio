@@ -4,60 +4,53 @@ import { fadeIn, textVariant } from "../utils/motion";
 import SectionWrapper from "./SectionWrapper";
 import { useAppPreferences } from "../context/AppPreferencesContext";
 
-const ServiceCard = ({ index, title, icon }: { index: number, title: string, icon: string }) => {
-  return (
-    <motion.div
-      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className="w-full sm:w-[250px] green-pink-gradient p-[1px] rounded-[20px] shadow-card"
-    >
-      <div
-        className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
-      >
-        <div className="w-16 h-16 object-contain flex items-center justify-center">
-          <h1 className="text-4xl">{title.charAt(0)}</h1>
-        </div>
-
-        <h3 className="text-white text-[20px] font-bold text-center">
-          {title}
-        </h3>
-      </div>
-    </motion.div>
-  );
-};
-
 const About = () => {
   const { dictionary } = useAppPreferences();
 
   return (
     <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>{dictionary.about.intro}</p>
-        <h2 className={styles.sectionHeadText}>{dictionary.about.heading}</h2>
-      </motion.div>
+      <div className="grid gap-10 md:grid-cols-12 md:gap-12">
+        <motion.div variants={textVariant()} className="md:col-span-5">
+          <p className={styles.sectionSubText}>{dictionary.about.intro}</p>
+          <h2 className={`${styles.sectionHeadText} mt-4`}>{dictionary.about.heading}</h2>
+        </motion.div>
 
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
-      >
-        {dictionary.about.body}
-      </motion.p>
-
-      <div className="mt-12 flex flex-wrap gap-10 justify-center">
-        {dictionary.data.services.map((service, index) => (
-          <ServiceCard key={service.title} index={index} {...service} />
-        ))}
+        <motion.p
+          variants={fadeIn("", "", 0.1, 0.5)}
+          className="text-lg leading-relaxed text-muted md:col-span-7 md:text-xl"
+        >
+          {dictionary.about.body}
+        </motion.p>
       </div>
 
-      
-      <motion.div 
-        variants={fadeIn("up", "spring", 0.5, 1)}
-        className="mt-16 p-8 bg-tertiary rounded-2xl"
+      <motion.ul
+        variants={fadeIn("", "", 0.1, 0.5)}
+        className="mt-16 grid list-none border-s border-t border-line sm:grid-cols-2 lg:grid-cols-4"
       >
-        <h3 className="text-xl font-bold text-white mb-4">{dictionary.about.certificationsHeading}</h3>
-        <ul className="text-secondary space-y-2 list-none">
+        {dictionary.data.services.map((service, index) => (
+          <li
+            key={service.title}
+            className="flex min-h-[160px] flex-col justify-between gap-10 border-b border-e border-line p-6"
+          >
+            <span className="font-mono text-xs text-muted">{String(index + 1).padStart(2, "0")}</span>
+            <h3 className="font-heading text-xl font-semibold leading-snug text-fg">{service.title}</h3>
+          </li>
+        ))}
+      </motion.ul>
+
+      <motion.div
+        variants={fadeIn("", "", 0.1, 0.5)}
+        className="mt-20 grid gap-8 md:grid-cols-12 md:gap-12"
+      >
+        <h3 className="font-mono text-xs uppercase tracking-label text-muted md:col-span-5">
+          {dictionary.about.certificationsHeading}
+        </h3>
+        <ul className="list-none border-t border-line md:col-span-7">
           {dictionary.about.certifications.map((item) => (
-            <li key={item} className="flex items-center gap-2">
-              <span className="text-[#14B8A6]">✦</span>
+            <li key={item} className="flex items-baseline gap-4 border-b border-line py-4 text-fg">
+              <span className="font-mono text-muted" aria-hidden="true">
+                —
+              </span>
               {item}
             </li>
           ))}
@@ -67,4 +60,4 @@ const About = () => {
   );
 };
 
-export default SectionWrapper(About, "about"); 
+export default SectionWrapper(About, "about");

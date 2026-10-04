@@ -217,7 +217,7 @@ const sharedProjects: ProjectItem[] = [
 const sharedSkillCategories: SkillCategoryItem[] = [
   {
     title: "Languages & Web",
-    skills: ["Python", "JavaScript", "PHP", "C/C++", "SQL", "HTML", "TypeScript", "React"],
+    skills: ["Python", "JavaScript", "PHP", "C/C++", "SQL", "HTML", "TypeScript", "React", "Regex"],
   },
   {
     title: "Frameworks & Libraries",
@@ -225,7 +225,7 @@ const sharedSkillCategories: SkillCategoryItem[] = [
   },
   {
     title: "Cloud & Tools",
-    skills: ["Azure", "AWS EC2", "Docker", "Git", "Power BI", "Postman", "Firebase", "MySQL", "MongoDB", "Commvault"],
+    skills: ["Azure", "AWS EC2", "Docker", "Git", "Power BI", "Postman", "Firebase", "MySQL", "MongoDB", "Commvault", "Data Validation"],
   },
 ];
 
@@ -237,6 +237,17 @@ const sharedServices: ServiceItem[] = [
 ];
 
 const sharedExperiences: ExperienceItem[] = [
+  {
+    title: "Data QA",
+    company_name: "YipitData",
+    icon: "web.png",
+    iconBg: "#0f3460",
+    date: "Sep 2026 - Present",
+    points: [
+      "Audit and validate large semi-structured datasets, flagging anomalies before they reach downstream analytics.",
+      "Use Python, Pandas, and Regex-based checks to enforce data integrity across formats, ranges, and duplicates.",
+    ],
+  },
   {
     title: "Software Engineer",
     company_name: "Corestrat",
@@ -306,6 +317,17 @@ const sharedExperiences: ExperienceItem[] = [
 
 const sharedExperiencesHi: ExperienceItem[] = [
   {
+    title: "Data QA",
+    company_name: "YipitData",
+    icon: "web.png",
+    iconBg: "#0f3460",
+    date: "Sep 2026 - Present",
+    points: [
+      "बड़े अर्ध-संरचित डेटासेट का ऑडिट और सत्यापन करता हूँ, ताकि विसंगतियाँ विश्लेषण तक पहुँचने से पहले पकड़ी जा सकें।",
+      "Python, Pandas और Regex-आधारित जाँच से फ़ॉर्मेट, रेंज और डुप्लिकेट पर डेटा की शुद्धता सुनिश्चित करता हूँ।",
+    ],
+  },
+  {
     title: "सॉफ्टवेयर इंजीनियर",
     company_name: "Corestrat",
     icon: "web.png",
@@ -373,6 +395,17 @@ const sharedExperiencesHi: ExperienceItem[] = [
 ];
 
 const sharedExperiencesAr: ExperienceItem[] = [
+  {
+    title: "Data QA",
+    company_name: "YipitData",
+    icon: "web.png",
+    iconBg: "#0f3460",
+    date: "Sep 2026 - Present",
+    points: [
+      "أدقق وأتحقق من مجموعات بيانات كبيرة شبه منظمة، وأرصد الشذوذ قبل وصولها إلى التحليلات اللاحقة.",
+      "أستخدم Python وPandas وفحوصات مبنية على Regex لضمان سلامة البيانات من حيث الصيغ والنطاقات والتكرارات.",
+    ],
+  },
   {
     title: "مهندس برمجيات",
     company_name: "Corestrat",
@@ -442,6 +475,17 @@ const sharedExperiencesAr: ExperienceItem[] = [
 
 const sharedExperiencesMl: ExperienceItem[] = [
   {
+    title: "Data QA",
+    company_name: "YipitData",
+    icon: "web.png",
+    iconBg: "#0f3460",
+    date: "Sep 2026 - Present",
+    points: [
+      "വലിയ സെമി-സ്ട്രക്ചേഡ് ഡാറ്റാസെറ്റുകൾ ഓഡിറ്റ് ചെയ്ത് സാധൂകരിക്കുകയും, അപാകതകൾ വിശകലനത്തിലേക്ക് എത്തുംമുമ്പ് കണ്ടെത്തുകയും ചെയ്യുന്നു.",
+      "Python, Pandas, Regex അടിസ്ഥാനമാക്കിയ പരിശോധനകൾ ഉപയോഗിച്ച് ഫോർമാറ്റ്, റേഞ്ച്, ഡ്യൂപ്ലിക്കേറ്റ് എന്നിവയിൽ ഡാറ്റയുടെ കൃത്യത ഉറപ്പാക്കുന്നു.",
+    ],
+  },
+  {
     title: "സോഫ്റ്റ്വെയർ എൻജിനീയർ",
     company_name: "Corestrat",
     icon: "web.png",
@@ -509,6 +553,17 @@ const sharedExperiencesMl: ExperienceItem[] = [
 ];
 
 const sharedExperiencesFr: ExperienceItem[] = [
+  {
+    title: "Data QA",
+    company_name: "YipitData",
+    icon: "web.png",
+    iconBg: "#0f3460",
+    date: "Sep 2026 - Present",
+    points: [
+      "Audit et validation de grands jeux de donnees semi-structurees, avec detection des anomalies avant les analyses en aval.",
+      "Utilisation de Python, Pandas et de controles bases sur les Regex pour garantir l'integrite des donnees (formats, plages, doublons).",
+    ],
+  },
   {
     title: "Ingenieur Logiciel",
     company_name: "Corestrat",
@@ -602,7 +657,7 @@ export const dictionaries: Record<LocaleCode, Dictionary> = {
       intro: "Introduction",
       heading: "About Me.",
       body:
-        "I'm a software engineer with hands-on experience in full-stack web development, cloud infrastructure, and data engineering. Currently pursuing MCA at CHRIST University while working as a Software Engineer at Corestrat.",
+        "I'm a software engineer with hands-on experience in full-stack web development, cloud infrastructure, and data engineering. Currently pursuing MCA at CHRIST University while working as a Data QA at YipitData.",
       certificationsHeading: "Certifications",
       certifications: [
         "Microsoft Certified: Azure Fundamentals",

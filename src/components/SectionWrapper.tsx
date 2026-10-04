@@ -1,27 +1,23 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { staggerContainer } from "../utils/motion";
-import { ReactNode } from "react";
 
-const SectionWrapper = (Component: React.ComponentType<any>, idName: string) => 
+const SectionWrapper = (Component: React.ComponentType<any>, idName: string) =>
   function HOC() {
     return (
       <motion.section
+        id={idName}
         variants={staggerContainer()}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
-        className={`${styles.padding} section-padding max-w-7xl mx-auto relative z-0`}
+        viewport={{ once: true, amount: "some" }}
+        className="relative scroll-mt-16 border-t border-line py-24 md:py-32"
       >
-        <span className="hash-span" id={idName}>
-          &nbsp;
-        </span>
-        
-        <div className="animate-fadeInUp">
+        <div className={`${styles.paddingX} mx-auto w-full max-w-7xl`}>
           <Component />
         </div>
       </motion.section>
     );
   };
 
-export default SectionWrapper; 
+export default SectionWrapper;

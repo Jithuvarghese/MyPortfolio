@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { styles } from "../styles";
 import { useAppPreferences } from "../context/AppPreferencesContext";
 
 const Loader = () => {
@@ -10,7 +9,7 @@ const Loader = () => {
   useEffect(() => {
     // Simulate loading progress
     const interval = setInterval(() => {
-      setProgress(prev => {
+      setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
           return 100;
@@ -23,41 +22,32 @@ const Loader = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-primary">
-      <div className="flex flex-col items-center">
-        <motion.div
-          animate={{
-            scale: [1, 1.5, 1],
-            rotate: [0, 360, 0],
-          }}
-          transition={{
-            duration: 2,
-            ease: "easeInOut",
-            repeat: Infinity,
-          }}
-          className="h-24 w-24 rounded-full border-b-2 border-white"
-        />
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-bg px-6"
+      role="status"
+      aria-live="polite"
+    >
+      <div className="w-full max-w-3xl">
         <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className={`${styles.heroHeadText} mt-8 text-center`}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="font-heading text-[40px] font-bold leading-none tracking-display text-fg xs:text-[52px] sm:text-7xl lg:text-8xl"
         >
           Jithu Varghese
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className={`${styles.heroSubText} mt-2 text-center`}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="mt-4 font-mono text-xs uppercase tracking-label text-muted"
         >
           {dictionary.loader.role}
         </motion.p>
-        <div className="w-64 h-2 bg-gray-700 mt-8 rounded-full overflow-hidden">
-          <motion.div 
-            className="h-full bg-[#14B8A6]"
-            initial={{ width: "0%" }}
-            animate={{ width: `${progress}%` }}
+        <div className="mt-10 h-px w-full bg-line">
+          <div
+            className="h-px bg-fg transition-[width] duration-100 ease-linear"
+            style={{ width: `${progress}%` }}
           />
         </div>
       </div>
@@ -65,4 +55,4 @@ const Loader = () => {
   );
 };
 
-export default Loader; 
+export default Loader;
