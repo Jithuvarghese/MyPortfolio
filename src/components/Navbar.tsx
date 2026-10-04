@@ -3,221 +3,152 @@ import Link from "next/link";
 import { styles } from "../styles";
 import { motion } from "framer-motion";
 import { useAppPreferences } from "../context/AppPreferencesContext";
-
-// Animation variants
-const navVariants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 70,
-      damping: 20,
-      mass: 0.5
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: -10 },
-  visible: (i: number) => ({ 
-    opacity: 1, 
-    y: 0,
-    transition: {
-      delay: i * 0.07 + 0.2,
-      duration: 0.4,
-      ease: "easeOut"
-    }
-  })
-};
+import ThemeToggle from "./ThemeToggle";
+import LanguageMenu from "./LanguageMenu";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const { dictionary, locale, setLocale, locales, theme, setTheme } = useAppPreferences();
+  const { dictionary } = useAppPreferences();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock page scroll and allow Escape to dismiss while the mobile menu is open.
+  useEffect(() => {
+    if (!toggle) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setToggle(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previous;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [toggle]);
+
   return (
+    <>
     <motion.nav
-      variants={navVariants}
-      initial="hidden"
-      animate="visible"
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-primary/80 backdrop-blur-md shadow-sm" : "bg-transparent"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 z-50 w-full border-b transition-colors duration-300 ${
+        scrolled || toggle
+          ? "border-line bg-bg/80 backdrop-blur-md"
+          : "border-transparent bg-transparent"
       }`}
     >
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
+      <div
+        className={`${styles.paddingX} mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-6`}
+      >
         <Link
           href="/"
-          className="flex items-center gap-2"
+          className="font-heading text-lg font-semibold tracking-display text-fg"
           onClick={() => {
             setActive("");
+            setToggle(false);
             window.scrollTo(0, 0);
           }}
         >
-          <motion.div
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <h1 className="text-white text-[20px] font-medium cursor-pointer flex">
-              Jithu&nbsp;
-              <span className="text-[#14B8A6]">Varghese</span>
-            </h1>
-            <motion.span 
-              className="absolute -bottom-1 left-0 h-[1px] bg-gradient-to-r from-[#14B8A6] to-transparent" 
-              initial={{ width: 0 }}
-              animate={{ width: "80%" }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            />
-          </motion.div>
+          Jithu Varghese
         </Link>
 
-        <div className="hidden sm:flex items-center gap-4">
-          <button
-            type="button"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="text-xs border border-[#14B8A6]/50 rounded-md px-3 py-1 text-white hover:bg-[#14B8A6]/15 transition-colors"
-          >
-            {theme === "dark" ? "Light" : "Dark"}
-          </button>
-          <select
-            aria-label="Language"
-            value={locale}
-            onChange={(e) => setLocale(e.target.value as any)}
-            className="bg-black/30 border border-[#14B8A6]/40 rounded-md px-2 py-1 text-sm text-white"
-          >
-            {locales.map((option) => (
-              <option key={option.code} value={option.code}>
-                {option.label}
-              </option>
+        <div className="hidden items-center gap-8 md:flex">
+          <ul className="flex list-none items-center gap-8">
+            {dictionary.navLinks.map((nav) => (
+              <li key={nav.id}>
+                <a
+                  href={`#${nav.id}`}
+                  onClick={() => setActive(nav.title)}
+                  className={`group relative inline-block py-2 font-mono text-xs uppercase tracking-label transition-colors hover:text-fg ${
+                    active === nav.title ? "text-fg" : "text-muted"
+                  }`}
+                >
+                  {nav.title}
+                  <span className="absolute bottom-1 start-0 h-px w-0 bg-fg transition-all duration-300 group-hover:w-full" />
+                </a>
+              </li>
             ))}
-          </select>
+          </ul>
+
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <LanguageMenu />
+          </div>
         </div>
 
-        <ul className="list-none hidden sm:flex flex-row gap-8 ml-6">
-          {dictionary.navLinks.map((nav, index) => (
-            <motion.li
-              key={nav.id}
-              custom={index}
-              variants={itemVariants}
-              initial="hidden"
-              animate="visible"
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[16px] font-normal cursor-pointer relative group`}
-              onClick={() => setActive(nav.title)}
-            >
-              <a href={`#${nav.id}`} className="inline-block py-2">{nav.title}</a>
-              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#14B8A6] group-hover:w-full transition-all duration-300" />
-            </motion.li>
-          ))}
-        </ul>
+        <button
+          type="button"
+          className="icon-btn md:hidden"
+          onClick={() => setToggle((value) => !value)}
+          aria-expanded={toggle}
+          aria-controls="mobile-menu"
+          aria-label={toggle ? "Close menu" : "Open menu"}
+        >
+          <span className="relative block h-3 w-5">
+            <span
+              className={`absolute inset-x-0 h-px bg-current transition-all duration-300 ${
+                toggle ? "top-1.5 rotate-45" : "top-0"
+              }`}
+            />
+            <span
+              className={`absolute inset-x-0 top-1.5 h-px bg-current transition-opacity duration-200 ${
+                toggle ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`absolute inset-x-0 h-px bg-current transition-all duration-300 ${
+                toggle ? "top-1.5 -rotate-45" : "top-3"
+              }`}
+            />
+          </span>
+        </button>
+      </div>
+    </motion.nav>
 
-        <div className="sm:hidden flex flex-1 justify-end items-center">
-          <div
-            className="w-[24px] h-[24px] cursor-pointer flex flex-col justify-between"
-            onClick={() => setToggle(!toggle)}
-          >
-            <motion.span 
-              animate={{ 
-                rotate: toggle ? 45 : 0, 
-                y: toggle ? 7 : 0,
-              }}
-              className="w-full h-[1px] bg-white block"
-            />
-            <motion.span 
-              animate={{ opacity: toggle ? 0 : 1 }}
-              className="w-full h-[1px] bg-white block"
-            />
-            <motion.span 
-              animate={{ 
-                rotate: toggle ? -45 : 0, 
-                y: toggle ? -7 : 0,
-              }}
-              className="w-full h-[1px] bg-white block"
-            />
-          </div>
+      {/* Sibling of the nav (not a child) so the nav's backdrop-filter cannot clip this fixed overlay. */}
+      {toggle && (
+        <div
+          id="mobile-menu"
+          className="fixed inset-0 z-40 overflow-y-auto bg-bg pt-16 md:hidden"
+        >
+          <div className={`${styles.paddingX} flex min-h-full flex-col pb-10 pt-6`}>
+            <div className="flex flex-wrap items-start gap-2">
+              <ThemeToggle />
+              <LanguageMenu inline />
+            </div>
 
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ 
-              scale: toggle ? 1 : 0.9,
-              opacity: toggle ? 1 : 0,
-            }}
-            className={`${
-              !toggle ? "hidden" : "flex"
-            } p-5 bg-black/70 backdrop-blur-lg absolute top-20 right-0 mx-4 my-2 min-w-[160px] z-10 rounded-lg border border-gray-800/30`}
-          >
-            <ul className="list-none flex justify-end items-start flex-1 flex-col gap-3">
-              <li className="w-full mb-2">
-                <button
-                  type="button"
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="w-full text-left border border-[#14B8A6]/50 rounded-md px-2 py-1 text-white"
-                >
-                  {theme === "dark" ? "Light" : "Dark"}
-                </button>
-              </li>
-              <li className="w-full mb-2">
-                <select
-                  aria-label="Language"
-                  value={locale}
-                  onChange={(e) => setLocale(e.target.value as any)}
-                  className="w-full bg-black/40 border border-[#14B8A6]/40 rounded-md px-2 py-1 text-white text-sm"
-                >
-                  {locales.map((option) => (
-                    <option key={option.code} value={option.code}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              </li>
+            <ul className="mt-8 list-none border-t border-line">
               {dictionary.navLinks.map((nav) => (
-                <motion.li
-                  key={nav.id}
-                  whileHover={{ x: 3 }}
-                  className={`font-poppins font-normal cursor-pointer text-[15px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
-                  } transition-colors duration-200 ease-in-out w-full`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
-                >
-                  <a 
+                <li key={nav.id} className="border-b border-line">
+                  <a
                     href={`#${nav.id}`}
-                    className="w-full block py-1 px-1"
+                    onClick={() => {
+                      setActive(nav.title);
+                      setToggle(false);
+                    }}
+                    className={`block py-5 font-heading text-4xl font-bold tracking-display transition-colors hover:text-fg ${
+                      active === nav.title ? "text-fg" : "text-muted"
+                    }`}
                   >
                     {nav.title}
                   </a>
-                </motion.li>
+                </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
         </div>
-      </div>
-    </motion.nav>
+      )}
+    </>
   );
 };
 
-export default Navbar; 
+export default Navbar;

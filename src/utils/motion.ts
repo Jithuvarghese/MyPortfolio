@@ -1,88 +1,32 @@
-export const textVariant = (delay?: number) => {
-  return {
-    hidden: {
-      y: -50,
-      opacity: 0,
-    },
-    show: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        duration: 1.25,
-        delay: delay,
-      },
-    },
-  };
-};
+// Short fade + 8px rise. Signatures are kept so existing call sites keep working,
+// but direction / spring options are intentionally ignored for a calmer feel.
+const ease = [0.22, 1, 0.36, 1] as const;
 
-export const fadeIn = (direction: string, type: string, delay: number, duration: number) => {
-  return {
-    hidden: {
-      x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
-      y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
-      opacity: 0,
-    },
-    show: {
-      x: 0,
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: type,
-        delay: delay,
-        duration: duration,
-        ease: "easeOut",
-      },
-    },
-  };
-};
+const rise = (delay = 0, duration = 0.5) => ({
+  hidden: { opacity: 0, y: 8 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "tween", ease, delay, duration },
+  },
+});
 
-export const zoomIn = (delay: number, duration: number) => {
-  return {
-    hidden: {
-      scale: 0,
-      opacity: 0,
-    },
-    show: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        type: "tween",
-        delay: delay,
-        duration: duration,
-        ease: "easeOut",
-      },
-    },
-  };
-};
+export const textVariant = (delay?: number) => rise(delay ?? 0, 0.5);
 
-export const slideIn = (direction: string, type: string, delay: number, duration: number) => {
-  return {
-    hidden: {
-      x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,
-      y: direction === "up" ? "100%" : direction === "down" ? "-100%" : 0,
-    },
-    show: {
-      x: 0,
-      y: 0,
-      transition: {
-        type: type,
-        delay: delay,
-        duration: duration,
-        ease: "easeOut",
-      },
-    },
-  };
-};
+export const fadeIn = (_direction?: string, _type?: string, delay = 0, duration = 0.5) =>
+  rise(delay, Math.min(duration, 0.6));
 
-export const staggerContainer = (staggerChildren?: number, delayChildren?: number) => {
-  return {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: staggerChildren,
-        delayChildren: delayChildren || 0,
-      },
+export const zoomIn = (delay = 0, duration = 0.5) => rise(delay, Math.min(duration, 0.6));
+
+export const slideIn = (_direction?: string, _type?: string, delay = 0, duration = 0.5) =>
+  rise(delay, Math.min(duration, 0.6));
+
+export const staggerContainer = (staggerChildren?: number, delayChildren?: number) => ({
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: staggerChildren ?? 0.08,
+      delayChildren: delayChildren || 0,
     },
-  };
-}; 
+  },
+});

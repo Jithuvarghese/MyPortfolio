@@ -1,17 +1,15 @@
 const styles = {
-  paddingX: "sm:px-16 px-6",
-  paddingY: "sm:py-8 py-4",
-  padding: "sm:px-16 px-6 sm:py-8 py-6",
+  paddingX: "px-6 sm:px-10 lg:px-16",
+  paddingY: "py-6 sm:py-8",
+  padding: "px-6 sm:px-10 lg:px-16 py-6 sm:py-8",
 
   heroHeadText:
-    "font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#99f6e4]",
-  heroSubText:
-    "text-[#dfd9ff] font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px]",
+    "font-heading font-bold tracking-display text-fg text-[44px] xs:text-[56px] sm:text-[76px] lg:text-[104px] leading-[0.98] [overflow-wrap:anywhere]",
+  heroSubText: "text-muted font-normal text-lg sm:text-xl lg:text-2xl leading-snug",
 
   sectionHeadText:
-    "font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] text-white relative inline-block",
-  sectionSubText:
-    "sm:text-[18px] text-[14px] text-[#14B8A6] uppercase tracking-wider font-semibold",
+    "font-heading font-bold tracking-display text-fg text-[40px] sm:text-[52px] lg:text-[64px] leading-[1.02] [overflow-wrap:anywhere]",
+  sectionSubText: "font-mono text-xs uppercase tracking-label text-muted",
 };
 
-export { styles }; 
+export { styles };
